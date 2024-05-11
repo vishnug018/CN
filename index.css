@@ -1,0 +1,83 @@
+/* Resetting default styles for better consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Default font family */
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+#menu {
+  background-color: #3f51b5; /* Dark blue background color for the menu */
+  color: #fff; /* White text color */
+  padding: 20px; /* Add some padding for spacing */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Align items to each end */
+  align-items: center; /* Center items vertically */
+}
+
+#title {
+  font-size: 24px; /* Adjust title font size */
+  font-weight: bold; /* Make title bold */
+}
+
+#create-board-button {
+  background-color: #64b5f6; /* Light blue background color for the button */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  font-size: 18px; /* Adjust font size */
+  cursor: pointer; /* Show pointer on hover */
+  border-radius: 5px; /* Add border radius */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+#create-board-button:hover {
+  background-color: #2196f3; /* Darker blue on hover */
+}
+
+.index-content {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#recent-title {
+  color: #3f51b5; /* Dark grey color for title */
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+#boards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board {
+  position: relative;
+  margin: 10px;
+  background-color: #fff; /* White background for boards */
+  border: 1px solid #ccc; /* Light grey border for distinct edges */
+}
+
+.hidden {
+  display: none;
+}
+
+.whiteboard {
+  background-color: #fff;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5)); /* Slightly modified shadow */
+}
+
+.created {
+  color: #333; /* Dark grey text color */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #fff; /* Background white for contrast */
+}

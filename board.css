@@ -1,0 +1,228 @@
+/* Resetting default styles for better consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Default font family */
+  background-color: #f0f0f0; /* Light gray background */
+  min-width: 1200px; /* Set minimum width */
+  min-height: 1200px; /* Set minimum height */
+  position: relative;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  align-items: center; /* Center items vertically */
+  z-index: 1000;
+}
+
+#title a {
+  color: #fff; /* White text color for the title link */
+  text-decoration: none; /* Remove underline from link */
+}
+
+#menu-buttons {
+  display: flex;
+}
+
+#clear-button,
+#show-poll-creation {
+  background-color: #64b5f6; /* Light blue background color for buttons */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Show pointer on hover */
+  border-radius: 5px; /* Add border radius */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+#clear-button:hover,
+#show-poll-creation:hover {
+  background-color: #2196f3; /* Darker blue on hover */
+}
+
+#poll-creation-section {
+  display: none; /* Hide poll creation section by default */
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #ddd; /* Light gray border */
+  padding: 20px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add shadow */
+  margin-top: 10px; /* Add top margin */
+  position: relative; /* Ensure it's positioned for z-index to work */
+  z-index: 3000; /* Higher than other elements */
+}
+
+#poll-creation-section input[type="text"] {
+  width: calc(100% - 22px); /* Full width minus padding and borders */
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#poll-creation-section button {
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+}
+
+#poll-creation-section button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #4CAF50;
+}
+
+#add-option {
+  background-color: #555; /* Darker gray */
+}
+
+#add-option:hover {
+  background-color: white;
+  color: #555;
+  border: 1px solid #555;
+}
+
+#whiteboard,
+#shape-layer {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+}
+
+#shape-layer {
+  pointer-events: none;
+}
+
+#whiteboard {
+  background-color: white;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.6));
+  width: 100%;
+  height: 100%;
+}
+/* Tooltip container */
+.tooltip {
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  font-size: 12px;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 70px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tools {
+  position: fixed;
+  top: 90px;
+  left: 50px;
+  z-index: 2000;
+  display: flex;
+}
+
+.colors {
+  margin-bottom: 20px;
+  display: flex;
+  margin-right: 20px;
+}
+
+.tool {
+  text-align: center;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative; /* Add relative positioning */
+}
+
+.tool > i {
+  vertical-align: sub;
+  position: absolute; /* Add absolute positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tool:hover {
+  background-color: #e0f1f8;
+}
+
+.color.black {
+  color: black;
+}
+
+.color.red {
+  color: red;
+}
+
+.hand {
+  color: black;
+}
+
+.vote-container {
+  display: flex;
+  align-items: center;
+}
+
+.vote-up,
+.vote-down {
+  background-color: #64b5f6; /* Light blue background color for voting buttons */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 5px; /* Add padding to the button */
+  font-size: 16px; /* Adjust font size */
+  cursor: pointer; /* Show pointer on hover */
+  border-radius: 5px; /* Add border radius */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.vote-up:hover,
+.vote-down:hover {
+  background-color: #2196f3; /* Darker blue on hover */
+}
+
+#upvotecount,
+#downvotecount {
+  margin: 0 5px; /* Add margin between vote count and voting buttons */
+  font-size: 16px; /* Adjust font size */
+}
