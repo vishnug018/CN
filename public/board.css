@@ -36,7 +36,7 @@ body {
   display: flex;
 }
 
-#clear-button,
+#clear-button,#update-pin,
 #show-poll-creation {
   background-color: #64b5f6; /* Light blue background color for buttons */
   color: #fff; /* White text color */

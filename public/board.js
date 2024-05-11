@@ -106,6 +106,7 @@ const ACTION = {
   $(".circle").click((e) => onSelect(e, MODE.circle));
   $(".sticky-notes").click(onStickyNoteSelect);
   $(".hand").click(onHandSelect);
+  $("#update-pin").click((onupdatepin));
   $(".vote-up").click((onupVote) );
   $(".vote-down").click((ondownVote));
   $(".undo").click(onUndo);
@@ -123,20 +124,29 @@ const ACTION = {
 
   const path = window.location.pathname;
   const boardId = path.slice(path.lastIndexOf("/") + 1);
+  const updatepin= $("#updatepin");
   const upvotecount = $("#upvotecount");
   const downvotecount = $("#downvotecount");
   const socket = io("?boardId=" + boardId);
   let up=0;
   let upp=0;
   let down=0;
+  let correct_pin="1234";
+  
+
   $("#upnum").text(up);
   socket.on("drawLine", drawLine);
   socket.on("updateNote", updateNote);
   socket.on("redraw", redraw);
-  socket.on("updateupvote", (vote) => {
-      upp=vote;
-      upvotecount.text(vote);
+  socket.on("updatedpin", (pin) => {
+      correct_pin=pin;
+      console.log(pin,"corrected");
+      updatepin.text(pin);
   });
+  socket.on("updateupvote", (vote) => {
+    upp=vote;
+    upvotecount.text(vote);
+});
   socket.on("updatedownvote", (vote) => {
       down=vote;
       downvotecount.text(vote);
@@ -148,7 +158,7 @@ const ACTION = {
   });
   socket.emit("load", null, (data) => {
     console.log("load", data);
-    const { status, lineHist, noteList } = data;
+    const { status, lineHist, noteList,pin} = data;
     if (status === "NOT_FOUND") {
       $.confirm({
         theme: "supervan",
@@ -162,11 +172,19 @@ const ACTION = {
         },
       });
     }
+    socket.emit("sendpin","lll");
+    console.log(pin);
+    const givenpin=prompt("pin");
+    if (givenpin==pin){
     for (let line of lineHist) {
       drawLine(line, false);
     }
     for (let key of Object.keys(noteList)) {
       updateNote(noteList[key]);
+    }}
+    else{
+      alert("Wrong password");
+      window.location.href = "/";
     }
   });
 
@@ -306,6 +324,11 @@ function ondownVote(data){
     }
     $("#upnum").text(up);
     //socket.emit("downvote",data);
+}
+function onupdatepin(data){
+  console.log("pin updated");
+  const newpin=prompt("pin updated");
+  socket.emit("updatepin",newpin);
 }
   let noteCache = {};
   function updateNote(data, emit) {

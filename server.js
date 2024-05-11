@@ -78,6 +78,7 @@ function onConnection(socket) {
   let noteList = {};
   let upvote=0;
   let downvote=0;
+  pin=1234;
   if (boardId && boards[boardId]) {
     lineHist = boards[boardId].lineHist;
     noteList = boards[boardId].noteList;
@@ -96,11 +97,11 @@ function onConnection(socket) {
       downvote:0,
       createdTimestamp: new Date().getTime(),
       boardId,
+      pin,
     };
     ack({ boardId });
     saveBoard(boardId);
   });
-
   socket.on("load", (data, ack) => {
     if (!boardId || !boards[boardId]) {
       ack({ status: "NOT_FOUND" });
@@ -121,6 +122,16 @@ function onConnection(socket) {
       }
     }
     io.to(boardId).emit("redraw", boards[boardId]);
+    saveBoard(boardId);
+  });
+  socket.on("sendpin", givenpin=>{
+    io.to(boardId).emit("updatedpin", boards[boardId].pin);
+  })
+  socket.on("updatepin", (pin) => { 
+    console.log(pin);
+    boards[boardId].pin=pin;
+    console.log(boards[boardId].pin);
+    io.to(boardId).emit("updatedpin", boards[boardId].pin);
     saveBoard(boardId);
   });
   socket.on("upvote", (data) => { 
