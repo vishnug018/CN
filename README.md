@@ -24,14 +24,14 @@ NextGenCollab is a collaborative whiteboard application that allows multiple use
 1. Clone the repository:
 
 ```
-git clone https://github.com/your-username/NextGenCollab.git
+git clone [https://github.com/vishnug018/CN.git]
 ```
 
 2. Install dependencies:
 
 ```
-cd NextGenCollab
-npm install
+cd CN
+npm i
 ```
 
 ## Usage
@@ -48,15 +48,8 @@ The server will start running on `http://localhost:3000`.
 
 ## Commands
 
-- `npm install`: Install project dependencies.
+- `npm i`: Install project dependencies.
 - `npm start`: Start the server.
 
 The application will be accessible at `http://localhost:3000`.
 
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
