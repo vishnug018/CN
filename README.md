@@ -13,6 +13,7 @@ NextGenCollab is a collaborative whiteboard application that allows multiple use
 - Voting: Each whiteboard has upvote and downvote buttons, allowing users to vote on the content.
 - Recent Boards: The landing page displays a list of recently created whiteboards.
 - Data Persistence: The whiteboard data (line history, notes, votes) is stored in Redis, ensuring that the state is preserved even if the server restarts.
+- Authentication: Default pin 0000 to create and join which can be changed after creating or joining the board.(PLEASE USE PIN 0000 FOR CREATING INITIAL BOARD)
 
 ## Prerequisites
 

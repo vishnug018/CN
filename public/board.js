@@ -131,7 +131,7 @@ const ACTION = {
   let up=0;
   let upp=0;
   let down=0;
-  let correct_pin="1234";
+  let correct_pin="0000";
   
 
   $("#upnum").text(up);
